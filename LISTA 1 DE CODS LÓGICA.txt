@@ -1,0 +1,320 @@
+1. Ler dois números inteiros do teclado. Se o segundo for diferente de zero, calcular e 
+imprimir o quociente do primeiro pelo segundo. Caso contrário, imprimir a 
+mensagem: “DIVISÃO POR ZERO”.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int a;
+	int b;
+	int resultado;
+	printf("Informe o primeiro número:");
+	scanf("%i",&a);
+	printf("Informe o segundo numero:");
+	scanf("%i",&b);
+	if (b==0){
+		printf("DIVISÃO POR ZERO!");
+	} else {
+		resultado = a/b;
+		printf("O quociente dos números é %i",resultado);
+	}
+	return 0;
+}
+-------------------------------------------------------------------------------------------
+
+2. Solicite a digitação de um número e mostre o seu dobro se ele for par e o seu triplo 
+se ele for ímpar:
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int a;
+	int par;
+	int impar;
+	printf("Informe um número:");
+	scanf("%i",&a);
+	if (a % 2 == 0){
+		par = 2 * a; 
+		printf("O dobro do número é: %i",par);
+	} else {
+		impar = 3 * a;
+		printf("O triplo do número é %i",impar);
+	}
+	return 0;
+}
+-------------------------------------------------------------------------------------
+
+3. Calcular o dinheiro gasto por um fumante a partir da informação do número de anos 
+que ele fumou, do nº de cigarros fumados por dia e o preço de uma carteira (uma 
+carteira possui 20 cigarros).
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int anos, cigarro;
+	float preco;
+	printf("Informe a quantidade de anos como fumante: ");
+	scanf("%i",&anos);
+	printf("Informe a quantidade de cigarros por dia: ");
+	scanf("%i",&cigarro);
+	printf("Informe o preço da carteira de cigarro: ");
+	scanf("%f",&preco);
+	
+	int cigarros_ano = cigarro * 365;
+    int cigarros_totais = cigarros_ano * anos;
+    float gastos = (cigarros_totais/20.0) * preco;
+	
+	printf("Você já gastou R$%.2f \n", gastos);
+	return 0;
+}
+---------------------------------------------------------------------------------
+
+4. Calcular o volume de um cilindro a partir da informação do raio da base e do 
+comprimento de sua altura.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	double raio,altura,volume;
+    printf("Informe o raio do cilindro: ");
+    scanf("%lf", &raio);
+    printf("Informe a altura do cilindro: ");
+    scanf("%lf", &altura);
+    volume = M_PI * pow(raio, 2) * altura;
+    printf("O volume do cilindro é %.2lf unidades cúbicas.\n", volume);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------
+5. Ler três números reais do teclado e verificar se o primeiro é maior que a soma dos
+outros dois:
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int n1,n2,n3;
+	printf("Informe o primeiro número: ");
+	scanf("%i",&n1);
+	printf("Informe o segundo número: ");
+	scanf("%i",&n2);
+	printf("Informe o terceiro número: ");
+	scanf("%i",&n3);
+	if (n1>n2+n3){
+		printf("O primeiro é maior que a soma dos outros dois");
+	} else if (n1==n2+n3) {
+		printf("O primeiro é igual que a soma dos outros dois");
+	} else {
+		printf("O primeiro é menor que a soma dos outros dois");
+	}
+	return 0;
+}
+
+------------------------------------------------------------------------------------------
+6. Leia a velocidade máxima permitida em uma avenida e a velocidade com que o 
+motorista estava dirigindo nela e calcule a multa que ele receberá, sabendo que são
+pagos: 
+a) 50 reais, se o motorista ultrapassar em até 10km/h a velocidade permitida. 
+b) 100 reais, se o motorista ultrapassar de 11 a 30 km/h a velocidade permitida. 
+c) 200 reais, se estiver acima de 31km/h da velocidade permitida.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	int vel_max,vel_motor,vel_ultra;
+	printf("Informe a velocidade máx. da via: ");
+	scanf("%i",&vel_max);
+	printf("Informe a velocidade do motorista: ");
+	scanf("%i",&vel_motor);
+	vel_ultra = vel_motor - vel_max;
+	if (vel_ultra > 0 && vel_ultra <= 10){
+		printf("A multa será de R$ 50,00.\nO motorista ultrapassou em até 10 km/h da velocidade permitida.");
+	} else if (vel_ultra > 10 && vel_ultra <=30){
+		printf("A multa será de R$ 100,00.\nO motorista ultrapassou de 11 a 30 km/h da velocidade permitida.");
+	} else if (vel_ultra > 30){
+		printf("A multa será de R$ 200,00.\nO motorista ultrapassou mais de 30 km/h da velocidade permitida.");
+	} else {
+		printf("O motorista não ultrapassou a velocidade permitida");
+	}
+		
+	return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+7. Sabendo que latão é constituído de 70% de cobre e 30% de zinco, indique a 
+quantidade de cada um desses componentes para se obter uma certa quantidade de 
+latão (requerida pelo usuário)
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL,"portuguese");
+    
+	float qtd_latao, qtd_cobre, qtd_zinco;
+	
+    printf("Digite a quantidade de latão desejada (em gramas): ");
+    scanf("%f", &qtd_latao);
+
+    qtd_cobre = 0.7 * qtd_latao; 
+    qtd_zinco = 0.3 * qtd_latao; 
+
+    printf("Para obter %.1f g de latão, você precisará de:\n", qtd_latao);
+    printf("%.1f g de Cobre.\n", qtd_cobre);
+    printf("%.1f g de Zinco.\n", qtd_zinco);
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------
+8. Informar três valores e colocá-los em ordem crescente:
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	int a, b, c;
+    printf("Digite o primeiro valor: ");
+    scanf("%d", &a);
+	printf("Digite o segundo valor: ");
+    scanf("%d", &b);
+    printf("Digite o terceiro valor: ");
+    scanf("%d", &c);
+    if (a > b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    if (b > c) {
+        int temp = b;
+        b = c;
+        c = temp;
+    }
+    if (a > b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    printf("%d, %d, %d\n", a, b, c);
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------
+9. Informar três valores do teclado e dizer o tipo do triângulo.
+• Equilátero (três lados iguais);
+• Isósceles (dois lados iguais) ;
+• Escaleno (três lados diferentes);
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+	int a, b, c;
+    printf("Digite o primeiro lado: ");
+    scanf("%d", &a);
+	printf("Digite o segundo lado: ");
+    scanf("%d", &b);
+    printf("Digite o terceiro lado: ");
+    scanf("%d", &c);
+	 if (a == b && b == c) {
+        printf("Os lados %i,%i,%i formam um triângulo Equilátero (três lados iguais).\n", a,b,c);
+    } else if (a == b || a == c || b == c) {
+        printf("Os lados %i,%i,%i formam um triângulo Isósceles (dois lados iguais).\n",a,b,c);
+    } else {
+        printf("Os lados %i,%i,%i formam um triângulo Escaleno (três lados diferentes).\n",a,b,c);
+    }
+
+    return 0;
+}
+
+------------------------------------------------------------------------------------------------------
+10. Ler quatro números inteiros e calcular a soma dos que forem par.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	setlocale(LC_ALL,"portuguese");
+    int num1, num2, num3, num4;
+    int soma_pares = 0;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+    printf("Digite o terceiro número: ");
+    scanf("%d", &num3);
+    printf("Digite o quarto número: ");
+    scanf("%d", &num4);
+
+    if (num1 % 2 == 0) {
+        soma_pares += num1;
+    }
+
+    if (num2 % 2 == 0) {
+        soma_pares += num2;
+    }
+
+    if (num3 % 2 == 0) {
+        soma_pares += num3;
+    }
+
+    if (num4 % 2 == 0) {
+        soma_pares += num4;
+    }
+
+    printf("Soma = %d\n", soma_pares);
+
+    return 0;
+}
+
+------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

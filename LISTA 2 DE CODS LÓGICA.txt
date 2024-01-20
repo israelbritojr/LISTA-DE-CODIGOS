@@ -1,0 +1,408 @@
+1.Faça um algoritmo para encontrar o maior número entre 3 números inteiros. 
+O algoritmo deve ler três números inteiros,se todos forem iguais, imprimir "os números iguais"
+e caso contrário, imprimir o maior dos 3 números.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese") ;
+    int numero1, numero2, numero3;
+
+    printf("Digite o primeiro número inteiro: ");
+    scanf("%d", &numero1);
+
+    printf("Digite o segundo número inteiro: ");
+    scanf("%d", &numero2);
+
+    printf("Digite o terceiro número inteiro: ");
+    scanf("%d", &numero3);
+
+    if (numero1 == numero2 && numero2 == numero3) {
+        printf("Os números são iguais.\n");
+    } else {
+        
+        int maiorNumero = numero1;
+
+        if (numero2 > maiorNumero) {
+            maiorNumero = numero2;
+        }
+
+        if (numero3 > maiorNumero) {
+            maiorNumero = numero3;
+        }
+
+        printf("O maior número é: %d\n", maiorNumero);
+    }
+
+    return 0;
+}
+
+-------------------------------------------------------------------------------------
+2.Faça um algoritmo que receba a idade de um nadador e imprima sua categoria seguindo as regras:  
+CATEGORIA E IDADE :
+Bebê = Menores de 5 anos . 
+Infantil A = 5 a 7 anos. 
+Infantil B = 8 a 10 anos. 
+Juvenil A = 11 a 13 anos. 
+Juvenil B = 14 a 17 anos. 
+Sênior = 18 anos ou mais.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    int idade;
+
+    printf("Digite a idade do nadador: ");
+    scanf("%d", &idade);
+
+    if (idade < 5) {
+        printf("A categoria do nadador é: Bebê\n");
+    } else if (idade >= 5 && idade <= 7) {
+        printf("A categoria do nadador é: Infantil A\n");
+    } else if (idade >= 8 && idade <= 10) {
+        printf("A categoria do nadador é: Infantil B\n");
+    } else if (idade >= 11 && idade <= 13) {
+        printf("A categoria do nadador é: Juvenil A\n");
+    } else if (idade >= 14 && idade <= 17) {
+        printf("A categoria do nadador é: Juvenil B\n");
+    } else {
+        printf("A categoria do nadador é: Sênior\n");
+    }
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------------
+3. Ler o salario de uma pessoa e calcular e imprimir o desconto do INSS.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    float salario, descontoINSS;
+    
+    printf("Digite o salário da pessoa: R$ ");
+    scanf("%f", &salario);
+
+    if (salario <= 600.00) {
+        descontoINSS = 0.0;
+    } else if (salario <= 1200.00) {
+        descontoINSS = salario * 0.2;  
+    } else if (salario <= 2000.00) {
+        descontoINSS = salario * 0.25; 
+    } else {
+        descontoINSS = salario * 0.3; 
+    }
+
+    printf("O desconto do INSS é: R$ %.2f\n", descontoINSS);
+
+    return 0;
+}
+-----------------------------------------------------------------------------
+4. Criar uma calculadora de operações básicas (soma, subtração, multiplicação e divisão). O algoritmo 
+deve ler dois números e o sinal correspondente à operação desejada, imprimindo o resultado final. 
+Restrições : Se o sinal digitado não for corresponder a uma operação apresentar a mensagem 
+"Sinal Invalido" e finalizar. Para a operação divisão, verificar se o divisor é valido 
+(maior que zero). Caso menor ou igual a zero, informar a mensagem "Impossivel Dividir!".
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    float num1, num2, resultado;
+    char operacao;
+
+    printf("Digite o primeiro número: ");
+    scanf("%f", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%f", &num2);
+
+    printf("Digite o sinal da operação (+, -, *, /): ");
+    scanf(" %c", &operacao);
+
+    switch (operacao) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            if (num2 <= 0) {
+                printf("Impossível dividir! O divisor deve ser maior que zero.\n");
+                return 1;
+            }
+            resultado = num1 / num2;
+            break;
+        default:
+            printf("Sinal inválido! Use +, -, *, ou /.\n");
+            return 1; 
+    }
+
+    printf("Resultado: %.2f\n", resultado);
+
+    return 0;
+}
+
+-----------------------------------------------------------------------------------------------
+5. Faça um algoritmo que leia um número inteiro. Calcular e imprimir a metade 
+do número, somente se ele for maior que 20.
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    int numero;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+
+    if (numero > 20) {
+        printf("A metade do número é: %d\n", numero / 2);
+    } else {
+        printf("O número não é maior que 20. Não será calculada a metade.\n");
+    }
+
+    return 0;
+}
+------------------------------------------------------------------------------------------
+6. Faça um algoritmo para ler um número inteiro. Verificar se o número está no intervalo 
+entre 50 (inclusive) e 100 (inclusive), se estiver, imprimir "Pertence ao intervalo", 
+senão "Não pertence ao intervalo".
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    int numero;
+
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+
+    if (numero >= 50 && numero <= 100) {
+        printf("Pertence ao intervalo.\n");
+    } else {
+        printf("Não pertence ao intervalo.\n");
+    }
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------
+7. Ler dois valores inteiros e apresentar a diferença do maior pelo menor. 
+Supor que não sejam iguais.
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+	int valor1, valor2, diferenca;
+
+    printf("Digite o primeiro valor inteiro: ");
+    scanf("%d", &valor1);
+
+    printf("Digite o segundo valor inteiro: ");
+    scanf("%d", &valor2);
+
+    if (valor1 > valor2) {
+        diferenca = valor1 - valor2;
+    } else {
+        diferenca = valor2 - valor1;
+    }
+
+    printf("A diferença do maior pelo menor é: %d\n", diferenca);
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------
+8. Ler dois números (ponto flutuante) e apresentá-los em ordem decrescente. 
+Suponha que eles não sejam iguais.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+	float num1, num2;
+
+    printf("Digite o primeiro número: ");
+    scanf("%f", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%f", &num2);
+
+ 
+    if (num1 > num2) {
+        printf("Os números em ordem decrescente: %.2f, %.2f\n", num1, num2);
+    } else {
+        printf("Os números em ordem decrescente: %.2f, %.2f\n", num2, num1);
+    }
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------
+9. A empresa XSoftware concedeu um bônus de 20% do valor de salário a todos os funcionários 
+com tempo de trabalho na empresa igual ou superior a cinco anos e de 10% aos demais 
+funcionários. Faça um algoritmo que leia o salário e a quantidade de anos de cada  funcionário,
+calcule e imprima o valor do bônus.
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+	float salario, bonus;
+    int anosTrabalhados;
+
+    printf("Digite o salário do funcionário: R$ ");
+    scanf("%f", &salario);
+
+    printf("Digite a quantidade de anos de trabalho: ");
+    scanf("%d", &anosTrabalhados);
+
+    if (anosTrabalhados >= 5) {
+        bonus = 0.2 * salario;
+    } else {
+        bonus = 0.1 * salario;
+    }
+
+    printf("O valor do bônus é: R$ %.2f\n", bonus);
+
+    return 0;
+}
+------------------------------------------------------------------------------------------------
+10. Faça um algoritmo que receba a idade de uma pessoa e mostre se ela é maior de idade ou não.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+    setlocale(LC_ALL,"portuguese");
+    int idade;
+
+    printf("Digite sua idade: ");
+    scanf("%i", &idade);
+
+    if (idade >= 18) {
+       printf("Você é maior de idade.\n");
+    } else {
+        printf("Você é menor de idade.\n");
+    }
+    return 0;
+}
+------------------------------------------------------------------------------------------------
+11. Faça um algoritmo que leia a altura e o sexo de uma pessoa, calcule e mostre seu peso ideal.
+Para calcular peso ideal usar as formulas : 
+Sexo masculino = (72,2 * altura) - 58.
+Sexo Feminino = (62,1 * altura ) - 44,7.
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+    
+	float altura, pesoIdeal;
+    char sexo;
+
+    printf("Digite a altura (em metros): ");
+    scanf("%f", &altura);
+
+    printf("Digite o sexo (M para masculino, F para feminino): ");
+    scanf(" %c", &sexo);
+
+    if (sexo == 'M' || sexo == 'm') {
+        pesoIdeal = (72.2 * altura) - 58;
+    } else if (sexo == 'F' || sexo == 'f') {
+        pesoIdeal = (62.1 * altura) - 44.7;
+    } else {
+        printf("Sexo inválido. Use M para masculino ou F para feminino.\n");
+        return 1;
+    }
+	setlocale(LC_ALL,"portuguese");
+    printf("O peso ideal é: %.2f kg\n", pesoIdeal);
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------
+12. A prefeitura do Rio de Janeiro abriu uma linha de crédito para os funcionários estatutários. 
+O valor máximo da prestação não poderá ultrapassar 30% do salário bruto.Fazer um algoritmo 
+que permita entrar com o salário bruto e o valor da prestação, e informar se o empréstimo 
+pode ou não ser concedido.
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+	
+	setlocale(LC_ALL,"portuguese");
+	float salarioBruto, valorPrestacao;
+    float percentualMaxPrestacao = 30;
+
+    printf("Digite o salário bruto: R$ ");
+    scanf("%f", &salarioBruto);
+
+    printf("Digite o valor da prestação: R$ ");
+    scanf("%f", &valorPrestacao);
+
+    float valorMaxPrestacao = (percentualMaxPrestacao / 100) * salarioBruto;
+
+    if (valorPrestacao <= valorMaxPrestacao) {
+        printf("Empréstimo concedido.\n");
+    } else {
+        printf("Empréstimo não pode ser concedido. O valor da prestação ultrapassa 30%% do salário bruto.\n");
+    }
+
+    return 0;
+}
+----------------------------------------------------------------------------------------------
